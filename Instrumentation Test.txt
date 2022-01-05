@@ -1,0 +1,22 @@
+
+
+- Menampilkan data Movie
+    Memastikan rv_movie dalam keadaan tampil.
+    Scroll rv_movie ke posisi data terakhir.
+
+
+- Menampilkan data Tv Show
+    Menekan Text TV show
+    Memastikan rv_tvShow dalam keadaan tampil.
+    Scroll rv_tvShow ke posisi data terakhir.
+
+- Menampilkan data detail Movie
+    Memberi tindakan klik pada data pertama di rv_movie 
+    Memastikan IamgeView untuk Poster tampil sesuai dengan yang diharapkan.
+    Memastikan TextView untuk title tampil sesuai dengan yang diharapkan.
+    Memastikan TextView untuk genre tampil sesuai dengan yang diharapkan.
+    Memastikan TextView untuk rating tampil sesuai dengan yang diharapkan.
+    Memastikan TextView untuk sinposis tampil sesuai dengan yang diharapkan.
+
+
+nama folder catatan di zip file : Instrumentation Test.txt
