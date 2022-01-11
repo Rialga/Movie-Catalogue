@@ -27,10 +27,14 @@ class MovieFragment : Fragment() {
         mainViewModel = ViewModelProvider(this)[MainViewModel::class.java]
         val movieData = mainViewModel.getMovieData()
 
-        Log.d("get" , movieData.toString())
-        fragmentMovieBinding.rvMovie.layoutManager = LinearLayoutManager(context)
-        val adapter = MovieAdapter(movieData)
-        fragmentMovieBinding.rvMovie.adapter = adapter
+
+        movieData.observe(this) { list ->
+
+            fragmentMovieBinding.rvMovie.layoutManager = LinearLayoutManager(context)
+            val adapter = MovieAdapter(list)
+            fragmentMovieBinding.rvMovie.adapter = adapter
+        }
+
     }
 
 

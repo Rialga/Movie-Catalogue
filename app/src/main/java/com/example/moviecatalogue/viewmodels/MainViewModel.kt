@@ -1,33 +1,18 @@
 package com.example.moviecatalogue.viewmodels
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.moviecatalogue.datadummies.DataDummy
 import com.example.moviecatalogue.models.MovieListModel
+import com.example.moviecatalogue.repositories.MovieRepository
 
 class MainViewModel :ViewModel() {
+    private val movieRepository: MovieRepository = MovieRepository()
 
-    private fun getData(): List<MovieListModel> = DataDummy.generateDummyMovies()
+    fun getMovieData() : LiveData<ArrayList<MovieListModel.Results>> = movieRepository.getMovieList()
 
-    fun getMovieData() : ArrayList<MovieListModel> {
-        val movie = ArrayList<MovieListModel>()
-        val allMovie = getData()
-        for(movieDetail in allMovie){
-            if(movieDetail.movieType == "movie") {
-                movie.add(movieDetail)
-            }
-        }
-        return movie
-    }
+    fun getTvShowData() : LiveData<ArrayList<MovieListModel.Results>> = movieRepository.getTvShowList()
 
 
-    fun getTvShowData() : ArrayList<MovieListModel> {
-        val tvshow = ArrayList<MovieListModel>()
-        val allMovie = getData()
-        for(movieDetail in allMovie){
-            if(movieDetail.movieType == "tvshow") {
-                tvshow.add(movieDetail)
-            }
-        }
-        return tvshow
-    }
 }

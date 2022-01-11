@@ -30,8 +30,12 @@ class TvShowsFragment : Fragment() {
 
         val movieData = mainViewModel.getTvShowData()
 
-        fragmentTvShowBinding.rvTvShow.layoutManager = LinearLayoutManager(context)
-        val adapter = MovieAdapter(movieData)
-        fragmentTvShowBinding.rvTvShow.adapter = adapter
+        movieData.observe(this) { list ->
+
+            val adapter = MovieAdapter(list)
+            fragmentTvShowBinding.rvTvShow.layoutManager = LinearLayoutManager(context)
+            fragmentTvShowBinding.rvTvShow.adapter = adapter
+        }
+
     }
 }
